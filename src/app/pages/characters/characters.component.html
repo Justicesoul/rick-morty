@@ -1,0 +1,47 @@
+<div>
+  <div class="character__buttons">
+    <input
+      [(ngModel)]="characterSearch"
+      class="character__search"
+      type="text"
+      placeholder="Search by character"
+      autofocus
+    />
+    <button
+      class="character__button"
+      (click)="filterCharacters(characterSearch)"
+    >
+      Search
+    </button>
+  </div>
+  <h1 class="character__error" *ngIf="errorMsg">{{ errorMsg }}</h1>
+  <div *ngIf="characters$ | async as characters">
+    <div class="character__contanier">
+      <div
+        *ngFor="let character of characters.results"
+        [routerLink]="['/characters', character.id]"
+        class="character__character"
+      >
+        <h1>{{ character.name }} ({{ character.gender }})</h1>
+        <img [src]="character.image" alt="{{ character.name }}" />
+        <h2>Episode count: {{ character.episode.length }}</h2>
+      </div>
+    </div>
+    <div class="character__buttons">
+      <button
+        class="character__button"
+        *ngIf="characters.info.prev"
+        (click)="getCharacters(characters.info.prev)"
+      >
+        << Prev
+      </button>
+      <button
+        class="character__button"
+        *ngIf="characters.info.next"
+        (click)="getCharacters(characters.info.next)"
+      >
+        Next >>
+      </button>
+    </div>
+  </div>
+</div>

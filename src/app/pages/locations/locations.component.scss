@@ -1,0 +1,36 @@
+.locations {
+  margin: 20px auto;
+  border: 1px solid darkgray;
+  padding: 5px 10px;
+}
+
+th,
+td {
+  padding: 3px 10px;
+}
+
+.locations__table-headings {
+  background-color: lightgray;
+}
+
+tr {
+  cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
+.location__search {
+  display: block;
+  margin: 40px auto 10px;
+  width: 250px;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.location__buttons {
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+  gap: 20px;
+}

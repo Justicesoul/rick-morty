@@ -1,0 +1,40 @@
+<div *ngIf="locations$ | async as locations">
+  <input
+    [(ngModel)]="locationSearch"
+    class="location__search"
+    type="text"
+    placeholder="Search by location"
+    autofocus
+  />
+  <table class="locations">
+    <tr class="locations__table-headings">
+      <th>Locations</th>
+      <th>Dimension</th>
+      <th>Residents</th>
+    </tr>
+    <tr
+      [routerLink]="['/locations', location.id]"
+      *ngFor="
+        let location of locations.results | filter: locationSearch
+      "
+    >
+      <td>{{ location.id }}. {{ location.name }}</td>
+      <td>{{ location.dimension }}</td>
+      <td>{{ location.residents.length }}</td>
+    </tr>
+  </table>
+  <div class="location__buttons">
+    <button
+      [disabled]="!locations.info.prev"
+      (click)="getLocations(locations.info.prev)"
+    >
+      << Prev
+    </button>
+    <button
+      [disabled]="!locations.info.next"
+      (click)="getLocations(locations.info.next)"
+    >
+      Next >>
+    </button>
+  </div>
+</div>

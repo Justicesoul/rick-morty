@@ -1,0 +1,30 @@
+.header {
+  background-color: lightgray;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  width: 200px;
+  cursor: pointer;
+}
+
+.header__nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav__link {
+  padding: 10px 5px;
+  margin: 0 10px;
+  &:active,
+  &:hover {
+    border-bottom: red 2px solid;
+  }
+}
+
+.nav__link--active {
+  border-bottom: rgb(62, 224, 216) 2px solid;
+}

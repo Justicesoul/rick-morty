@@ -1,0 +1,5 @@
+<div *ngIf="location$ | async as location" class="location">
+  <h1>{{ location.name }}</h1>
+  <h2>Dimension: {{ location.dimension }}</h2>
+  <h2>Residents: {{location.residents.length}}</h2>
+</div>

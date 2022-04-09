@@ -1,0 +1,9 @@
+<div *ngIf="character$ | async as character" class="character">
+  <h1>{{ character.name }}</h1>
+  <img [src]="character.image" alt="{{ character.name }}" />
+  <div>
+    <h2>Gender: {{ character.gender }}</h2>
+    <h2>Specie: {{ character.species }}</h2>
+    <h2>Episode count: {{ character.episode.length }}</h2>
+  </div>
+</div>
